@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Decisiones bajo incertidumbre",
+  title: "Simulador de vehículo autónomo",
   description:
-    "Prototipo académico para explicar decisiones seguras cuando los sensores de un vehículo se contradicen.",
+    "Simulador interactivo de detección de obstáculos y toma de decisiones de un vehículo autónomo.",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",

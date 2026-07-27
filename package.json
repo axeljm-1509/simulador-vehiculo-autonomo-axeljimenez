@@ -1,6 +1,6 @@
 {
   "name": "simulador-vehiculo-autonomo",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "private": true,
   "type": "module",
   "engines": {
@@ -11,7 +11,6 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "test": "npm run test:engine",
     "test:engine": "node --experimental-strip-types --test src/engine/decisionEngine.test.ts"
   },
   "dependencies": {

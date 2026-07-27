@@ -137,42 +137,35 @@ export default function App() {
         <div className={styles.headerInner}>
           <div className={styles.brand}>
             <span className={styles.brandMark} aria-hidden="true">
-              ◈
+              ◉
             </span>
             <div>
-              <strong>Radar seguro</strong>
-              <span>Simulación automática de un vehículo</span>
+              <strong>AUTODRIVE // RADAR OPS</strong>
+              <span>Simulador autónomo de respuesta vial</span>
             </div>
           </div>
-          <span className={styles.prototype}>Prototipo académico · No real</span>
+          <span className={styles.prototype}>SISTEMA EN LÍNEA</span>
         </div>
       </header>
 
       <main className={styles.main}>
         <section className={styles.intro}>
           <div className={styles.introText}>
-            <span>SIMULACIÓN AUTOMÁTICA</span>
-            <h1>Elija un obstáculo. El vehículo hace todo lo demás.</h1>
+            <span>MISIÓN 01 · DETECCIÓN PREVENTIVA</span>
+            <h1>Controla el escenario. El vehículo toma la decisión.</h1>
             <p>
-              Los sensores se configuran solos, el radar mide la separación y
-              el vehículo ajusta su velocidad para conservar una distancia
-              segura de 12 metros.
+              Selecciona un obstáculo y observa cómo el radar detecta el riesgo,
+              calcula la distancia y ejecuta la maniobra automáticamente.
             </p>
           </div>
           <div className={styles.logicFlow} aria-label="Flujo automático">
             <div>
-              <span>01 · ELEGIR</span>
-              <strong>Obstáculo</strong>
+              <span>OBJETIVO</span>
+              <strong>Conservar 12 m</strong>
             </div>
-            <span aria-hidden="true">→</span>
             <div>
-              <span>02 · RADAR</span>
-              <strong>Mide distancia</strong>
-            </div>
-            <span aria-hidden="true">→</span>
-            <div>
-              <span>03 · AUTOMÁTICO</span>
-              <strong>Frena seguro</strong>
+              <span>MODO</span>
+              <strong>Autónomo</strong>
             </div>
           </div>
         </section>
@@ -199,33 +192,7 @@ export default function App() {
           result={result}
           fusionConfidence={scenario.fusionConfidence}
         />
-
-        <section className={styles.assumptions}>
-          <article>
-            <h2>Funcionamiento automático</h2>
-            <ul>
-              <li>La persona solamente elige el obstáculo de la calle.</li>
-              <li>LIDAR, cámara y radar generan sus lecturas automáticamente.</li>
-              <li>La velocidad inicial automática es de 50 km/h.</li>
-              <li>El radar conserva una separación académica de 12 metros.</li>
-              <li>La decisión cambia sin presionar un botón de evaluación.</li>
-            </ul>
-          </article>
-          <article>
-            <h2>Limitaciones</h2>
-            <ul>
-              <li>No utiliza sensores reales ni controla un vehículo.</li>
-              <li>La distancia segura es únicamente un supuesto académico.</li>
-              <li>No representa física real ni frenado certificado.</li>
-              <li>La animación se utiliza para explicar el algoritmo.</li>
-            </ul>
-          </article>
-        </section>
       </main>
-
-      <footer className={styles.footer}>
-        Representación educativa sin validez para sistemas reales de conducción.
-      </footer>
     </div>
   );
 }

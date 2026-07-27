@@ -1,46 +1,22 @@
 # Simulador de vehículo autónomo
 
-Aplicación web académica que representa la toma de decisiones de un vehículo
-autónomo ante obstáculos detectados por sus sensores.
+Demo interactiva que representa la detección de obstáculos y la toma de
+decisiones automática de un vehículo mediante LIDAR, cámara y radar.
 
-## Funciones principales
-
-- Selección visual del obstáculo presente en la carretera.
-- Lecturas automáticas de sensores.
-- Radar con distancia segura de 12 metros.
-- Frenado controlado y frenado de emergencia.
-- Detención visual de la autopista cuando el vehículo llega a 0 km/h.
-- Confirmación visual de que el vehículo se detuvo por el sensor.
-
-## Ejecutar localmente
-
-Se requiere Node.js 22.
+## Ejecución local
 
 ```bash
-npm ci
+npm install
 npm run dev
 ```
 
-La aplicación estará disponible en `http://localhost:3000`.
+Abra `http://localhost:3000`.
 
-## Publicar en Vercel
+## Publicación en Vercel
 
-1. Subir todos los archivos de este proyecto a la raíz de un repositorio de
-   GitHub.
-2. Importar el repositorio desde Vercel.
-3. Seleccionar el framework `Next.js`.
-4. Mantener la carpeta raíz en `./`.
-5. Usar `npm ci` como comando de instalación.
-6. Usar `npm run build` como comando de construcción.
-7. Dejar vacío el campo `Output Directory`.
-8. Presionar `Deploy`.
+1. Suba todos los archivos de este proyecto a GitHub.
+2. Importe el repositorio en Vercel.
+3. Mantenga `Next.js` como framework.
+4. Ejecute el despliegue.
 
-El archivo `vercel.json` ya contiene la configuración de construcción necesaria.
-
-## Reemplazar una versión anterior
-
-Estos archivos pueden copiarse sobre la versión anterior del repositorio. La
-configuración nueva ignora los archivos antiguos de ChatGPT Sites durante la
-compilación. Para mantener el repositorio ordenado, también se pueden eliminar
-posteriormente `.openai`, `build`, `db`, `drizzle`, `examples`, `scripts`,
-`worker` y `vite.config.ts`.
+No es necesario subir carpetas de compilación como `node_modules` o `.next`.

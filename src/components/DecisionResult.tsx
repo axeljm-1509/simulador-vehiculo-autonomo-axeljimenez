@@ -84,29 +84,6 @@ export default function DecisionResult({
           <span>REGLA PRINCIPAL ACTIVADA</span>
           <strong>{result.activatedRules[0]}</strong>
         </div>
-
-        <div className={styles.detailGrid}>
-          <article className={styles.explanation}>
-            <span className={styles.sectionLabel}>EXPLICACIÓN PASO A PASO</span>
-            <ol>
-              {result.explanationSteps.map((step) => (
-                <li key={step}>{step}</li>
-              ))}
-            </ol>
-          </article>
-          <article className={styles.justification}>
-            <div className={styles.shield} aria-hidden="true">
-              ✓
-            </div>
-            <span className={styles.sectionLabel}>POR QUÉ ES SEGURA</span>
-            <h3>Principio preventivo</h3>
-            <p>{result.safetyJustification}</p>
-            <blockquote>
-              Un falso positivo puede causar una demora. Un falso negativo puede
-              causar una colisión.
-            </blockquote>
-          </article>
-        </div>
       </motion.section>
     </AnimatePresence>
   );

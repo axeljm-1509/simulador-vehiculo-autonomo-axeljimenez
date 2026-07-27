@@ -1,114 +1,205 @@
 .panel {
+  position: sticky;
+  top: 86px;
   overflow: hidden;
-  border: 1px solid #dce5f1;
-  border-radius: 22px;
-  background: #ffffff;
-  box-shadow: 0 18px 45px rgba(32, 57, 91, 0.08);
+  border: 1px solid rgba(83, 170, 224, 0.24);
+  border-radius: 18px;
+  background:
+    linear-gradient(160deg, rgba(12, 28, 48, 0.97), rgba(4, 13, 25, 0.98));
+  box-shadow:
+    0 22px 60px rgba(0, 0, 0, 0.34),
+    inset 0 1px rgba(255, 255, 255, 0.035);
+}
+
+.panel::before {
+  position: absolute;
+  top: 0;
+  right: 18px;
+  left: 18px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #5ee9ff, transparent);
+  opacity: 0.65;
+  content: "";
 }
 
 .header {
-  padding: 20px 22px 17px;
-  border-bottom: 1px solid #e8eef6;
+  padding: 20px 20px 16px;
+  border-bottom: 1px solid rgba(77, 153, 207, 0.16);
 }
 
 .header > span,
 .summaryHeader span,
 .radarCard > div > span {
-  color: #6a7d97;
-  font-size: 0.66rem;
-  font-weight: 850;
-  letter-spacing: 0.13em;
+  color: #5cdbf3;
+  font-size: 0.61rem;
+  font-weight: 900;
+  letter-spacing: 0.17em;
 }
 
 .header h2 {
-  margin: 5px 0 7px;
-  color: #172c48;
-  font-size: 1.15rem;
+  margin: 6px 0 7px;
+  color: #edfaff;
+  font-size: 1.16rem;
   letter-spacing: -0.025em;
 }
 
 .header p {
   margin: 0;
-  color: #6d7f96;
-  font-size: 0.78rem;
-  line-height: 1.55;
+  color: #7f9bb3;
+  font-size: 0.72rem;
+  line-height: 1.5;
 }
 
 .options {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  padding: 17px 18px 0;
+  gap: 9px;
+  padding: 15px 15px 0;
 }
 
 .options button {
+  position: relative;
   display: grid;
-  grid-template-columns: 38px 1fr auto;
-  gap: 10px;
+  grid-template-columns: 36px 1fr;
+  gap: 9px;
   align-items: center;
-  min-height: 66px;
-  border: 1px solid #dde6f1;
-  border-radius: 13px;
-  padding: 10px;
-  background: #fbfcfe;
-  color: #263b58;
+  min-height: 76px;
+  overflow: hidden;
+  border: 1px solid rgba(99, 158, 202, 0.2);
+  border-radius: 12px;
+  padding: 11px 9px;
+  background:
+    linear-gradient(145deg, rgba(20, 42, 66, 0.78), rgba(7, 19, 34, 0.9));
+  color: #cfe8f5;
   cursor: pointer;
   text-align: left;
   transition:
-    transform 160ms ease,
-    border-color 160ms ease,
-    background 160ms ease;
+    transform 170ms ease,
+    border-color 170ms ease,
+    background 170ms ease,
+    box-shadow 170ms ease;
+}
+
+.options button::after {
+  position: absolute;
+  right: -20px;
+  bottom: -34px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(74, 205, 246, 0.12);
+  filter: blur(10px);
+  opacity: 0;
+  content: "";
+  transition: opacity 170ms ease;
 }
 
 .options button:hover {
-  border-color: #aac5ef;
-  transform: translateY(-1px);
+  z-index: 1;
+  border-color: rgba(97, 232, 255, 0.62);
+  background:
+    linear-gradient(145deg, rgba(25, 66, 94, 0.92), rgba(7, 23, 40, 0.96));
+  box-shadow: 0 9px 24px rgba(0, 158, 215, 0.16);
+  transform: translateY(-2px);
+}
+
+.options button:hover::after,
+.options button.selected::after {
+  opacity: 1;
+}
+
+.options button:active {
+  transform: translateY(0) scale(0.98);
 }
 
 .options button.selected {
-  border-color: #4c83e9;
-  background: #f0f5ff;
-  box-shadow: inset 0 0 0 1px rgba(76, 131, 233, 0.1);
+  border-color: #66e8ff;
+  background:
+    linear-gradient(145deg, rgba(17, 86, 119, 0.92), rgba(5, 31, 51, 0.98));
+  box-shadow:
+    inset 0 0 0 1px rgba(100, 232, 255, 0.16),
+    0 0 20px rgba(55, 201, 242, 0.2);
+}
+
+.options button > kbd {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 2;
+  display: grid;
+  width: 18px;
+  height: 18px;
+  place-items: center;
+  border: 1px solid rgba(126, 181, 216, 0.24);
+  border-radius: 5px;
+  background: rgba(2, 10, 20, 0.55);
+  color: #7594aa;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.54rem;
+  box-shadow: none;
+}
+
+.options button.selected > kbd {
+  border-color: rgba(99, 234, 255, 0.52);
+  color: #a7f4ff;
 }
 
 .options button > i {
+  z-index: 1;
   display: grid;
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   place-items: center;
-  border-radius: 11px;
-  background: #e9f0fc;
-  color: #2e67cb;
+  border: 1px solid rgba(91, 181, 226, 0.24);
+  border-radius: 9px;
+  background: rgba(34, 100, 139, 0.2);
+  color: #78dff5;
   font-size: 1rem;
   font-style: normal;
   font-weight: 900;
 }
 
 .options button.selected > i {
-  background: #2f6fec;
-  color: #ffffff;
+  border-color: rgba(109, 236, 255, 0.62);
+  background: #42c5e8;
+  color: #032130;
+  box-shadow: 0 0 15px rgba(66, 197, 232, 0.38);
 }
 
 .options button span,
 .options button strong,
 .options button small {
+  z-index: 1;
   display: block;
 }
 
 .options button strong {
-  font-size: 0.78rem;
+  padding-right: 10px;
+  color: #e5f6fc;
+  font-size: 0.75rem;
 }
 
 .options button small {
   margin-top: 3px;
-  color: #8392a5;
-  font-size: 0.62rem;
+  color: #718ba2;
+  font-size: 0.58rem;
 }
 
 .options button > em {
-  color: #3772dc;
-  font-size: 0.8rem;
+  position: absolute;
+  right: 7px;
+  bottom: 5px;
+  z-index: 2;
+  color: #74efff;
+  font-size: 0.42rem;
   font-style: normal;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  opacity: 0;
+}
+
+.options button.selected > em {
+  opacity: 1;
 }
 
 .options button:last-child {
@@ -118,14 +209,14 @@
 .radarCard {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin: 16px 18px 0;
-  border: 1px solid #b9e7e6;
-  border-radius: 14px;
-  padding: 13px 14px;
+  gap: 13px;
+  margin: 14px 15px 0;
+  border: 1px solid rgba(82, 226, 211, 0.3);
+  border-radius: 12px;
+  padding: 12px;
   background:
-    radial-gradient(circle at 100% 0%, rgba(33, 183, 180, 0.12), transparent 10rem),
-    #f2fbfb;
+    radial-gradient(circle at 100% 0%, rgba(42, 226, 216, 0.15), transparent 10rem),
+    rgba(4, 33, 43, 0.78);
 }
 
 .radarCard strong,
@@ -135,56 +226,76 @@
 
 .radarCard strong {
   margin: 4px 0 3px;
-  color: #176968;
-  font-size: 0.82rem;
+  color: #9cf7ec;
+  font-size: 0.76rem;
 }
 
 .radarCard small {
-  color: #668b8a;
-  font-size: 0.63rem;
+  color: #649b9d;
+  font-size: 0.58rem;
 }
 
 .radarIcon {
   position: relative;
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   flex: 0 0 auto;
   overflow: hidden;
+  border: 1px solid rgba(90, 234, 223, 0.35);
   border-radius: 50%;
-  background: #164d5d;
+  background: #092c3a;
+  box-shadow: 0 0 18px rgba(90, 234, 223, 0.11);
+}
+
+.radarIcon::after {
+  position: absolute;
+  inset: 50% 50% 0;
+  width: 50%;
+  background: linear-gradient(90deg, rgba(90, 234, 223, 0.48), transparent);
+  content: "";
+  transform-origin: left top;
+  animation: radarSweep 2s linear infinite;
+}
+
+@keyframes radarSweep {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .radarIcon span {
   position: absolute;
-  bottom: 5px;
+  bottom: 4px;
   left: 50%;
-  border: 1px solid rgba(90, 234, 224, 0.52);
+  z-index: 1;
+  border: 1px solid rgba(90, 234, 224, 0.44);
   border-bottom: 0;
   border-radius: 50% 50% 0 0;
   transform: translateX(-50%);
 }
 
 .radarIcon span:nth-child(1) {
-  width: 15px;
-  height: 9px;
+  width: 14px;
+  height: 8px;
 }
 
 .radarIcon span:nth-child(2) {
-  width: 28px;
-  height: 18px;
+  width: 26px;
+  height: 17px;
 }
 
 .radarIcon span:nth-child(3) {
-  width: 41px;
-  height: 29px;
+  width: 38px;
+  height: 27px;
 }
 
 .radarIcon i {
   position: absolute;
-  bottom: 4px;
+  bottom: 3px;
   left: 50%;
-  width: 6px;
-  height: 6px;
+  z-index: 2;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   background: #5aeadf;
   box-shadow: 0 0 9px #5aeadf;
@@ -192,10 +303,11 @@
 }
 
 .sensorSummary {
-  margin: 16px 18px 0;
+  margin: 14px 15px 0;
   overflow: hidden;
-  border: 1px solid #e0e8f2;
-  border-radius: 13px;
+  border: 1px solid rgba(82, 145, 190, 0.2);
+  border-radius: 11px;
+  background: rgba(4, 14, 27, 0.58);
 }
 
 .summaryHeader {
@@ -203,23 +315,24 @@
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  padding: 11px 12px;
-  background: #f7f9fc;
+  padding: 10px 11px;
+  background: rgba(16, 39, 62, 0.55);
 }
 
 .summaryHeader strong {
   display: block;
   margin-top: 3px;
-  color: #3d526d;
-  font-size: 0.72rem;
+  color: #aac6d6;
+  font-size: 0.67rem;
 }
 
 .summaryHeader em {
+  border: 1px solid rgba(87, 166, 223, 0.2);
   border-radius: 999px;
   padding: 5px 8px;
-  background: #eaf1ff;
-  color: #3767bd;
-  font-size: 0.58rem;
+  background: rgba(41, 107, 161, 0.17);
+  color: #83c9f3;
+  font-size: 0.54rem;
   font-style: normal;
   font-weight: 800;
 }
@@ -229,41 +342,62 @@
   grid-template-columns: 0.7fr 1.2fr 0.5fr;
   gap: 8px;
   align-items: center;
-  padding: 9px 12px;
-  border-top: 1px solid #e8eef6;
-  font-size: 0.68rem;
+  padding: 8px 11px;
+  border-top: 1px solid rgba(77, 145, 194, 0.13);
+  font-size: 0.64rem;
 }
 
 .sensorRow > span {
-  color: #4c617c;
-  font-weight: 800;
+  color: #72d9ee;
+  font-weight: 850;
 }
 
 .sensorRow strong {
-  color: #263c58;
-  font-size: 0.68rem;
+  color: #b6cbd8;
+  font-size: 0.63rem;
 }
 
 .sensorRow small {
-  color: #8291a4;
+  color: #668096;
   text-align: right;
 }
 
 .restart {
-  width: calc(100% - 36px);
-  min-height: 42px;
-  margin: 16px 18px 18px;
-  border: 1px solid #c9d9f2;
+  display: flex;
+  width: calc(100% - 30px);
+  min-height: 43px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 14px 15px 16px;
+  border: 1px solid rgba(89, 202, 237, 0.42);
   border-radius: 10px;
-  background: #edf3ff;
-  color: #255cc1;
+  background: linear-gradient(180deg, rgba(31, 119, 159, 0.34), rgba(12, 49, 74, 0.45));
+  color: #a3efff;
   cursor: pointer;
-  font-size: 0.75rem;
-  font-weight: 800;
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  transition:
+    background 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.restart span {
+  font-size: 1rem;
 }
 
 .restart:hover {
-  background: #e3edff;
+  background: linear-gradient(180deg, rgba(47, 161, 204, 0.44), rgba(17, 70, 101, 0.58));
+  box-shadow: 0 0 18px rgba(66, 197, 232, 0.15);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 1060px) {
+  .panel {
+    position: static;
+  }
 }
 
 @media (max-width: 520px) {

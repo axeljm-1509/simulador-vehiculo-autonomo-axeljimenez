@@ -1,64 +1,118 @@
 .simulationCard {
+  position: relative;
   overflow: hidden;
-  border: 1px solid #dce5f1;
-  border-radius: 22px;
-  background: #ffffff;
-  box-shadow: 0 18px 45px rgba(32, 57, 91, 0.08);
+  border: 1px solid rgba(83, 170, 224, 0.25);
+  border-radius: 18px;
+  background:
+    linear-gradient(160deg, rgba(12, 28, 48, 0.96), rgba(4, 13, 25, 0.98));
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.38),
+    inset 0 1px rgba(255, 255, 255, 0.035);
+}
+
+.simulationCard::before {
+  position: absolute;
+  top: 0;
+  right: 22px;
+  left: 22px;
+  z-index: 2;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #5ee9ff, transparent);
+  opacity: 0.68;
+  content: "";
 }
 
 .simulationHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 22px 17px;
-  border-bottom: 1px solid #e8eef6;
+  padding: 17px 20px 14px;
+  border-bottom: 1px solid rgba(77, 153, 207, 0.16);
 }
 
 .simulationHeader h2 {
   margin: 4px 0 0;
+  color: #edfaff;
   font-size: 1.15rem;
   letter-spacing: -0.02em;
 }
 
 .eyebrow {
-  color: #6a7d97;
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
+  color: #5cdbf3;
+  font-size: 0.61rem;
+  font-weight: 900;
+  letter-spacing: 0.17em;
 }
 
 .liveStatus {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  border: 1px solid #dce5f1;
+  border: 1px solid rgba(103, 152, 190, 0.22);
   border-radius: 999px;
   padding: 7px 10px;
-  color: #60738d;
-  font-size: 0.76rem;
-  font-weight: 700;
+  background: rgba(4, 14, 26, 0.62);
+  color: #7691a9;
+  font-size: 0.67rem;
+  font-weight: 800;
+  text-transform: uppercase;
 }
 
 .liveStatus i {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  background: #9dafc3;
+  background: #7b8fa0;
 }
 
 .liveStatus.active i {
-  background: #2bb673;
-  box-shadow: 0 0 0 4px rgba(43, 182, 115, 0.14);
+  background: #5bf3b9;
+  box-shadow:
+    0 0 8px #5bf3b9,
+    0 0 0 4px rgba(91, 243, 185, 0.1);
+  animation: livePulse 1.2s ease-in-out infinite;
+}
+
+@keyframes livePulse {
+  50% {
+    opacity: 0.45;
+  }
 }
 
 .roadFrame {
   position: relative;
-  margin: 18px;
+  margin: 14px;
   overflow: hidden;
-  border: 1px solid #25354c;
-  border-radius: 18px;
-  background: #172235;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(83, 171, 216, 0.35);
+  border-radius: 14px;
+  background: #07111e;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03),
+    inset 0 -90px 120px rgba(0, 0, 0, 0.25),
+    0 0 30px rgba(31, 143, 193, 0.1);
+}
+
+.roadFrame::before {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(90deg, rgba(12, 35, 53, 0.66), transparent 15%, transparent 85%, rgba(12, 35, 53, 0.66)),
+    repeating-linear-gradient(0deg, rgba(132, 224, 255, 0.025) 0 1px, transparent 1px 4px);
+  content: "";
+  pointer-events: none;
+}
+
+.roadFrame::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  height: 23%;
+  background: linear-gradient(transparent, rgba(1, 7, 15, 0.5));
+  content: "";
+  pointer-events: none;
 }
 
 .roadFrame svg {
@@ -68,99 +122,110 @@
 }
 
 .redAlert {
-  animation: emergencyPulse 1s ease-in-out infinite;
+  animation: emergencyPulse 0.85s ease-in-out infinite;
 }
 
 .yellowAlert {
+  border-color: rgba(255, 195, 74, 0.5);
   box-shadow:
-    inset 0 0 0 1px rgba(255, 201, 74, 0.18),
-    0 0 0 2px rgba(255, 201, 74, 0.06);
+    inset 0 0 50px rgba(255, 171, 50, 0.06),
+    0 0 22px rgba(255, 181, 45, 0.08);
 }
 
 .blueAlert {
   box-shadow:
-    inset 0 0 0 1px rgba(65, 151, 255, 0.16),
-    0 0 0 2px rgba(65, 151, 255, 0.04);
+    inset 0 0 48px rgba(65, 151, 255, 0.045),
+    0 0 20px rgba(65, 151, 255, 0.06);
 }
 
 .stoppedAlert {
+  border-color: rgba(90, 234, 223, 0.7);
   box-shadow:
-    inset 0 0 0 2px rgba(90, 234, 223, 0.4),
-    0 0 0 3px rgba(90, 234, 223, 0.1);
+    inset 0 0 58px rgba(90, 234, 223, 0.07),
+    0 0 28px rgba(90, 234, 223, 0.13);
 }
 
 @keyframes emergencyPulse {
   0%,
   100% {
-    box-shadow: 0 0 0 2px rgba(239, 72, 72, 0.16);
+    border-color: rgba(255, 76, 89, 0.52);
+    box-shadow: 0 0 15px rgba(239, 72, 72, 0.09);
   }
   50% {
-    box-shadow: 0 0 0 6px rgba(239, 72, 72, 0.08);
+    border-color: rgba(255, 76, 89, 0.92);
+    box-shadow: 0 0 28px rgba(239, 72, 72, 0.18);
   }
 }
 
 .actionBanner {
   position: absolute;
-  top: 16px;
-  left: 16px;
-  max-width: calc(100% - 32px);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 12px;
+  top: 14px;
+  left: 14px;
+  z-index: 4;
+  max-width: calc(100% - 28px);
+  border: 1px solid rgba(100, 221, 255, 0.24);
+  border-radius: 9px;
   padding: 9px 12px;
-  background: rgba(10, 20, 34, 0.78);
+  background: rgba(3, 14, 27, 0.78);
   color: #ffffff;
-  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(9px);
 }
 
 .actionBanner span {
   display: block;
   margin-bottom: 3px;
-  color: #9cb2cd;
-  font-size: 0.59rem;
-  font-weight: 800;
-  letter-spacing: 0.13em;
+  color: #6ddff6;
+  font-size: 0.54rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
 }
 
 .actionBanner strong {
   display: block;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.035em;
 }
 
 .fullStopOverlay {
   position: absolute;
   inset: 0;
-  z-index: 3;
+  z-index: 5;
   display: grid;
   place-items: center;
   padding: 20px;
-  background: rgba(7, 17, 30, 0.28);
+  background:
+    radial-gradient(circle, rgba(14, 71, 78, 0.16), rgba(2, 9, 18, 0.42));
   pointer-events: none;
 }
 
 .fullStopPanel {
   display: flex;
   align-items: center;
-  gap: 12px;
-  max-width: 310px;
-  border: 1px solid rgba(143, 248, 239, 0.55);
-  border-radius: 16px;
-  padding: 14px 16px;
-  background: rgba(8, 35, 47, 0.94);
+  gap: 13px;
+  max-width: 340px;
+  border: 1px solid rgba(123, 249, 239, 0.68);
+  border-radius: 13px;
+  padding: 15px 17px;
+  background: rgba(4, 28, 39, 0.93);
   color: #ffffff;
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.28);
-  backdrop-filter: blur(8px);
+  box-shadow:
+    0 16px 50px rgba(0, 0, 0, 0.42),
+    0 0 28px rgba(90, 234, 223, 0.16);
+  backdrop-filter: blur(10px);
 }
 
 .fullStopIcon {
   display: grid;
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   flex: 0 0 auto;
   place-items: center;
   border-radius: 50%;
   background: #5aeadf;
   color: #07303a;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
+  box-shadow: 0 0 20px rgba(90, 234, 223, 0.45);
 }
 
 .fullStopPanel small,
@@ -171,20 +236,20 @@
 
 .fullStopPanel small {
   color: #8ff8ef;
-  font-size: 0.58rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
+  font-size: 0.56rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
 }
 
 .fullStopPanel strong {
-  margin-top: 4px;
-  font-size: 0.88rem;
+  margin-top: 5px;
+  font-size: 0.9rem;
 }
 
 .fullStopPanel em {
-  margin-top: 3px;
-  color: #b9d8dc;
-  font-size: 0.66rem;
+  margin-top: 4px;
+  color: #9cc5ca;
+  font-size: 0.64rem;
   font-style: normal;
 }
 
@@ -192,77 +257,89 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
-  border-top: 1px solid #e8eef6;
-  background: #e8eef6;
+  border-top: 1px solid rgba(80, 151, 198, 0.17);
+  background: rgba(80, 151, 198, 0.15);
 }
 
 .telemetry > div {
-  padding: 17px 14px;
-  background: #fbfcfe;
+  position: relative;
+  padding: 16px 14px;
+  background: rgba(5, 16, 29, 0.88);
   text-align: center;
+}
+
+.telemetry > div::before {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 48px;
+  height: 1px;
+  background: #54dbf4;
+  box-shadow: 0 0 9px rgba(84, 219, 244, 0.7);
+  content: "";
+  transform: translateX(-50%);
 }
 
 .telemetry span {
   display: block;
-  min-height: 24px;
-  color: #75879e;
-  font-size: 0.58rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  min-height: 22px;
+  color: #627f98;
+  font-size: 0.55rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
 }
 
 .telemetry strong {
-  color: #102544;
-  font-size: 1.35rem;
-  letter-spacing: -0.04em;
+  color: #dff8ff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 1.45rem;
+  letter-spacing: -0.05em;
+  text-shadow: 0 0 14px rgba(95, 219, 247, 0.22);
 }
 
 .telemetry small {
   margin-left: 4px;
-  color: #74859a;
-  font-size: 0.67rem;
+  color: #587289;
+  font-size: 0.63rem;
 }
 
 .telemetry .statusWord {
-  font-size: 0.92rem;
-  letter-spacing: -0.02em;
+  color: #7ee8fb;
+  font-family: inherit;
+  font-size: 0.82rem;
+  letter-spacing: 0;
+  text-transform: uppercase;
 }
 
-.safeMessage {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin: 16px 18px 18px;
-  border: 1px solid #bfe4d1;
-  border-radius: 12px;
-  padding: 12px 14px;
-  background: #effaf4;
-  color: #17643c;
-  font-size: 0.78rem;
-}
-
+.safeMessage,
 .radarSafeMessage {
   display: flex;
   align-items: center;
   gap: 11px;
-  margin: 16px 18px 18px;
-  border: 1px solid #b9e7e6;
-  border-radius: 12px;
-  padding: 12px 14px;
-  background: #f0fbfa;
-  color: #176968;
+  margin: 14px;
+  border: 1px solid rgba(91, 230, 199, 0.32);
+  border-radius: 10px;
+  padding: 11px 13px;
+  background: rgba(16, 97, 78, 0.14);
+  color: #8ff1cf;
+  font-size: 0.72rem;
+}
+
+.safeMessage {
+  justify-content: space-between;
 }
 
 .radarSafeMessage > span {
   display: grid;
-  width: 32px;
-  height: 32px;
+  width: 31px;
+  height: 31px;
   flex: 0 0 auto;
   place-items: center;
+  border: 1px solid rgba(90, 234, 223, 0.38);
   border-radius: 50%;
-  background: #d4f5f1;
-  color: #168c86;
+  background: rgba(90, 234, 223, 0.11);
+  color: #68eee4;
+  box-shadow: 0 0 13px rgba(90, 234, 223, 0.13);
 }
 
 .radarSafeMessage strong,
@@ -271,20 +348,33 @@
 }
 
 .radarSafeMessage strong {
-  font-size: 0.76rem;
+  font-size: 0.73rem;
 }
 
 .radarSafeMessage small {
   margin-top: 3px;
-  color: #658b89;
-  font-size: 0.64rem;
+  color: #679795;
+  font-size: 0.6rem;
 }
 
 .safeMessage span {
-  color: #537160;
+  color: #679781;
 }
 
 @media (max-width: 560px) {
+  .simulationHeader {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .liveStatus {
+    max-width: 132px;
+  }
+
+  .roadFrame {
+    margin: 10px;
+  }
+
   .roadFrame svg {
     height: 440px;
   }
@@ -298,7 +388,16 @@
     grid-template-columns: 1fr auto auto;
     align-items: center;
     gap: 5px;
+    padding: 12px 14px;
     text-align: left;
+  }
+
+  .telemetry > div::before {
+    top: 50%;
+    left: 0;
+    width: 1px;
+    height: 25px;
+    transform: translateY(-50%);
   }
 
   .telemetry span {

@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect } from "react";
 import {
   CONFIDENCE_LABELS,
   REPORT_LABELS,
@@ -21,36 +24,42 @@ interface ObstacleSelectorProps {
 const OBSTACLES: Array<{
   value: SensorReport;
   icon: string;
+  shortcut: string;
   title: string;
   description: string;
 }> = [
   {
     value: "pedestrian",
-    icon: "♟",
+    icon: "♙",
+    shortcut: "1",
     title: "Peatón",
     description: "Persona cruzando",
   },
   {
     value: "bicycle",
-    icon: "◉",
+    icon: "◌",
+    shortcut: "2",
     title: "Bicicleta",
     description: "Ciclista adelante",
   },
   {
     value: "vehicle",
     icon: "▰",
+    shortcut: "3",
     title: "Vehículo",
     description: "Automóvil detenido",
   },
   {
     value: "unknown",
     icon: "?",
+    shortcut: "4",
     title: "Desconocido",
     description: "Objeto sin identificar",
   },
   {
     value: "none",
-    icon: "✓",
+    icon: "↟",
+    shortcut: "5",
     title: "Vía libre",
     description: "Sin obstáculo",
   },
@@ -63,13 +72,38 @@ export default function ObstacleSelector({
   onSelect,
   onRestart,
 }: ObstacleSelectorProps) {
+  useEffect(() => {
+    const handleShortcut = (event: KeyboardEvent) => {
+      if (event.altKey || event.ctrlKey || event.metaKey) return;
+
+      const target = event.target as HTMLElement | null;
+      if (
+        target &&
+        ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName)
+      ) {
+        return;
+      }
+
+      const obstacle = OBSTACLES.find(
+        (item) => item.shortcut === event.key,
+      );
+      if (obstacle) {
+        event.preventDefault();
+        onSelect(obstacle.value);
+      }
+    };
+
+    window.addEventListener("keydown", handleShortcut);
+    return () => window.removeEventListener("keydown", handleShortcut);
+  }, [onSelect]);
+
   return (
     <section className={styles.panel} aria-labelledby="obstacle-title">
       <div className={styles.header}>
-        <span>ÚNICA ELECCIÓN NECESARIA</span>
-        <h2 id="obstacle-title">¿Qué colocamos en la calle?</h2>
+        <span>PANEL DE ESCENARIOS</span>
+        <h2 id="obstacle-title">Selecciona el próximo desafío</h2>
         <p>
-          Al elegir una opción, la simulación comienza de nuevo automáticamente.
+          Haz clic o usa las teclas 1–5. Cada elección reinicia la ronda.
         </p>
       </div>
 
@@ -85,14 +119,15 @@ export default function ObstacleSelector({
             }
             onClick={() => onSelect(obstacle.value)}
           >
+            <kbd aria-label={`Tecla ${obstacle.shortcut}`}>
+              {obstacle.shortcut}
+            </kbd>
             <i aria-hidden="true">{obstacle.icon}</i>
             <span>
               <strong>{obstacle.title}</strong>
               <small>{obstacle.description}</small>
             </span>
-            <em aria-hidden="true">
-              {selectedObstacle === obstacle.value ? "●" : "○"}
-            </em>
+            <em aria-hidden="true">SELECCIONADO</em>
           </button>
         ))}
       </div>
@@ -105,17 +140,17 @@ export default function ObstacleSelector({
           <i />
         </div>
         <div>
-          <span>RADAR AUTOMÁTICO ACTIVO</span>
-          <strong>Distancia objetivo: 12 metros</strong>
-          <small>Mide y ajusta la velocidad sin intervención.</small>
+          <span>RADAR // AUTO-TRACK</span>
+          <strong>Zona segura configurada a 12 metros</strong>
+          <small>Escaneo y respuesta automática en tiempo real.</small>
         </div>
       </div>
 
       <div className={styles.sensorSummary}>
         <div className={styles.summaryHeader}>
           <div>
-            <span>LECTURAS GENERADAS</span>
-            <strong>Los sensores trabajan solos</strong>
+            <span>TELEMETRÍA DE SENSORES</span>
+            <strong>Lecturas automáticas</strong>
           </div>
           <em>Fusión {CONFIDENCE_LABELS[fusionConfidence].toLowerCase()}</em>
         </div>
@@ -129,7 +164,7 @@ export default function ObstacleSelector({
       </div>
 
       <button className={styles.restart} type="button" onClick={onRestart}>
-        ↺ Reiniciar simulación
+        <span aria-hidden="true">↻</span> REINICIAR RONDA
       </button>
     </section>
   );
