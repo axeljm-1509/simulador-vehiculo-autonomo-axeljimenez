@@ -1,0 +1,312 @@
+.simulationCard {
+  overflow: hidden;
+  border: 1px solid #dce5f1;
+  border-radius: 22px;
+  background: #ffffff;
+  box-shadow: 0 18px 45px rgba(32, 57, 91, 0.08);
+}
+
+.simulationHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 22px 17px;
+  border-bottom: 1px solid #e8eef6;
+}
+
+.simulationHeader h2 {
+  margin: 4px 0 0;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+
+.eyebrow {
+  color: #6a7d97;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.liveStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #dce5f1;
+  border-radius: 999px;
+  padding: 7px 10px;
+  color: #60738d;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.liveStatus i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #9dafc3;
+}
+
+.liveStatus.active i {
+  background: #2bb673;
+  box-shadow: 0 0 0 4px rgba(43, 182, 115, 0.14);
+}
+
+.roadFrame {
+  position: relative;
+  margin: 18px;
+  overflow: hidden;
+  border: 1px solid #25354c;
+  border-radius: 18px;
+  background: #172235;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.roadFrame svg {
+  display: block;
+  width: 100%;
+  height: min(63vh, 540px);
+}
+
+.redAlert {
+  animation: emergencyPulse 1s ease-in-out infinite;
+}
+
+.yellowAlert {
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 201, 74, 0.18),
+    0 0 0 2px rgba(255, 201, 74, 0.06);
+}
+
+.blueAlert {
+  box-shadow:
+    inset 0 0 0 1px rgba(65, 151, 255, 0.16),
+    0 0 0 2px rgba(65, 151, 255, 0.04);
+}
+
+.stoppedAlert {
+  box-shadow:
+    inset 0 0 0 2px rgba(90, 234, 223, 0.4),
+    0 0 0 3px rgba(90, 234, 223, 0.1);
+}
+
+@keyframes emergencyPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 2px rgba(239, 72, 72, 0.16);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(239, 72, 72, 0.08);
+  }
+}
+
+.actionBanner {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  max-width: calc(100% - 32px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  padding: 9px 12px;
+  background: rgba(10, 20, 34, 0.78);
+  color: #ffffff;
+  backdrop-filter: blur(8px);
+}
+
+.actionBanner span {
+  display: block;
+  margin-bottom: 3px;
+  color: #9cb2cd;
+  font-size: 0.59rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+
+.actionBanner strong {
+  display: block;
+  font-size: 0.78rem;
+}
+
+.fullStopOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(7, 17, 30, 0.28);
+  pointer-events: none;
+}
+
+.fullStopPanel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 310px;
+  border: 1px solid rgba(143, 248, 239, 0.55);
+  border-radius: 16px;
+  padding: 14px 16px;
+  background: rgba(8, 35, 47, 0.94);
+  color: #ffffff;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(8px);
+}
+
+.fullStopIcon {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  background: #5aeadf;
+  color: #07303a;
+  font-size: 0.92rem;
+}
+
+.fullStopPanel small,
+.fullStopPanel strong,
+.fullStopPanel em {
+  display: block;
+}
+
+.fullStopPanel small {
+  color: #8ff8ef;
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.fullStopPanel strong {
+  margin-top: 4px;
+  font-size: 0.88rem;
+}
+
+.fullStopPanel em {
+  margin-top: 3px;
+  color: #b9d8dc;
+  font-size: 0.66rem;
+  font-style: normal;
+}
+
+.telemetry {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  border-top: 1px solid #e8eef6;
+  background: #e8eef6;
+}
+
+.telemetry > div {
+  padding: 17px 14px;
+  background: #fbfcfe;
+  text-align: center;
+}
+
+.telemetry span {
+  display: block;
+  min-height: 24px;
+  color: #75879e;
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.telemetry strong {
+  color: #102544;
+  font-size: 1.35rem;
+  letter-spacing: -0.04em;
+}
+
+.telemetry small {
+  margin-left: 4px;
+  color: #74859a;
+  font-size: 0.67rem;
+}
+
+.telemetry .statusWord {
+  font-size: 0.92rem;
+  letter-spacing: -0.02em;
+}
+
+.safeMessage {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 16px 18px 18px;
+  border: 1px solid #bfe4d1;
+  border-radius: 12px;
+  padding: 12px 14px;
+  background: #effaf4;
+  color: #17643c;
+  font-size: 0.78rem;
+}
+
+.radarSafeMessage {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin: 16px 18px 18px;
+  border: 1px solid #b9e7e6;
+  border-radius: 12px;
+  padding: 12px 14px;
+  background: #f0fbfa;
+  color: #176968;
+}
+
+.radarSafeMessage > span {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  background: #d4f5f1;
+  color: #168c86;
+}
+
+.radarSafeMessage strong,
+.radarSafeMessage small {
+  display: block;
+}
+
+.radarSafeMessage strong {
+  font-size: 0.76rem;
+}
+
+.radarSafeMessage small {
+  margin-top: 3px;
+  color: #658b89;
+  font-size: 0.64rem;
+}
+
+.safeMessage span {
+  color: #537160;
+}
+
+@media (max-width: 560px) {
+  .roadFrame svg {
+    height: 440px;
+  }
+
+  .telemetry {
+    grid-template-columns: 1fr;
+  }
+
+  .telemetry > div {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 5px;
+    text-align: left;
+  }
+
+  .telemetry span {
+    min-height: auto;
+  }
+
+  .safeMessage {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,277 @@
+.panel {
+  overflow: hidden;
+  border: 1px solid #dce5f1;
+  border-radius: 22px;
+  background: #ffffff;
+  box-shadow: 0 18px 45px rgba(32, 57, 91, 0.08);
+}
+
+.header {
+  padding: 20px 22px 17px;
+  border-bottom: 1px solid #e8eef6;
+}
+
+.header > span,
+.summaryHeader span,
+.radarCard > div > span {
+  color: #6a7d97;
+  font-size: 0.66rem;
+  font-weight: 850;
+  letter-spacing: 0.13em;
+}
+
+.header h2 {
+  margin: 5px 0 7px;
+  color: #172c48;
+  font-size: 1.15rem;
+  letter-spacing: -0.025em;
+}
+
+.header p {
+  margin: 0;
+  color: #6d7f96;
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 17px 18px 0;
+}
+
+.options button {
+  display: grid;
+  grid-template-columns: 38px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  min-height: 66px;
+  border: 1px solid #dde6f1;
+  border-radius: 13px;
+  padding: 10px;
+  background: #fbfcfe;
+  color: #263b58;
+  cursor: pointer;
+  text-align: left;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease;
+}
+
+.options button:hover {
+  border-color: #aac5ef;
+  transform: translateY(-1px);
+}
+
+.options button.selected {
+  border-color: #4c83e9;
+  background: #f0f5ff;
+  box-shadow: inset 0 0 0 1px rgba(76, 131, 233, 0.1);
+}
+
+.options button > i {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 11px;
+  background: #e9f0fc;
+  color: #2e67cb;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.options button.selected > i {
+  background: #2f6fec;
+  color: #ffffff;
+}
+
+.options button span,
+.options button strong,
+.options button small {
+  display: block;
+}
+
+.options button strong {
+  font-size: 0.78rem;
+}
+
+.options button small {
+  margin-top: 3px;
+  color: #8392a5;
+  font-size: 0.62rem;
+}
+
+.options button > em {
+  color: #3772dc;
+  font-size: 0.8rem;
+  font-style: normal;
+}
+
+.options button:last-child {
+  grid-column: 1 / -1;
+}
+
+.radarCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 16px 18px 0;
+  border: 1px solid #b9e7e6;
+  border-radius: 14px;
+  padding: 13px 14px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(33, 183, 180, 0.12), transparent 10rem),
+    #f2fbfb;
+}
+
+.radarCard strong,
+.radarCard small {
+  display: block;
+}
+
+.radarCard strong {
+  margin: 4px 0 3px;
+  color: #176968;
+  font-size: 0.82rem;
+}
+
+.radarCard small {
+  color: #668b8a;
+  font-size: 0.63rem;
+}
+
+.radarIcon {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 auto;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #164d5d;
+}
+
+.radarIcon span {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  border: 1px solid rgba(90, 234, 224, 0.52);
+  border-bottom: 0;
+  border-radius: 50% 50% 0 0;
+  transform: translateX(-50%);
+}
+
+.radarIcon span:nth-child(1) {
+  width: 15px;
+  height: 9px;
+}
+
+.radarIcon span:nth-child(2) {
+  width: 28px;
+  height: 18px;
+}
+
+.radarIcon span:nth-child(3) {
+  width: 41px;
+  height: 29px;
+}
+
+.radarIcon i {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #5aeadf;
+  box-shadow: 0 0 9px #5aeadf;
+  transform: translateX(-50%);
+}
+
+.sensorSummary {
+  margin: 16px 18px 0;
+  overflow: hidden;
+  border: 1px solid #e0e8f2;
+  border-radius: 13px;
+}
+
+.summaryHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 11px 12px;
+  background: #f7f9fc;
+}
+
+.summaryHeader strong {
+  display: block;
+  margin-top: 3px;
+  color: #3d526d;
+  font-size: 0.72rem;
+}
+
+.summaryHeader em {
+  border-radius: 999px;
+  padding: 5px 8px;
+  background: #eaf1ff;
+  color: #3767bd;
+  font-size: 0.58rem;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.sensorRow {
+  display: grid;
+  grid-template-columns: 0.7fr 1.2fr 0.5fr;
+  gap: 8px;
+  align-items: center;
+  padding: 9px 12px;
+  border-top: 1px solid #e8eef6;
+  font-size: 0.68rem;
+}
+
+.sensorRow > span {
+  color: #4c617c;
+  font-weight: 800;
+}
+
+.sensorRow strong {
+  color: #263c58;
+  font-size: 0.68rem;
+}
+
+.sensorRow small {
+  color: #8291a4;
+  text-align: right;
+}
+
+.restart {
+  width: calc(100% - 36px);
+  min-height: 42px;
+  margin: 16px 18px 18px;
+  border: 1px solid #c9d9f2;
+  border-radius: 10px;
+  background: #edf3ff;
+  color: #255cc1;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.restart:hover {
+  background: #e3edff;
+}
+
+@media (max-width: 520px) {
+  .options {
+    grid-template-columns: 1fr;
+  }
+
+  .options button:last-child {
+    grid-column: auto;
+  }
+}

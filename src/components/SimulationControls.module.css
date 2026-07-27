@@ -1,0 +1,60 @@
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 15px;
+  border: 1px solid #dce5f1;
+  border-radius: 15px;
+  padding: 11px;
+  background: #ffffff;
+  box-shadow: 0 12px 34px rgba(36, 60, 93, 0.06);
+}
+
+.controls button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 40px;
+  border: 1px solid #d7e0eb;
+  border-radius: 9px;
+  padding: 0 13px;
+  background: #ffffff;
+  color: #334964;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 750;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    transform 160ms ease;
+}
+
+.controls button:hover:not(:disabled) {
+  border-color: #aac1df;
+  background: #f6f9fd;
+  transform: translateY(-1px);
+}
+
+.controls button:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+}
+
+.controls .primary {
+  border-color: #245fd2;
+  background: #2f6fec;
+  color: #ffffff;
+}
+
+.controls .evaluate {
+  border-color: #c8d8ff;
+  background: #edf3ff;
+  color: #2157be;
+}
+
+@media (max-width: 640px) {
+  .controls button {
+    flex: 1 1 140px;
+  }
+}
